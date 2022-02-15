@@ -2,12 +2,16 @@
   "name": "moviesearch",
   "version": "0.0.1",
   "private": true,
+  "author": "Erhan BİÇER <iletisim@erhanbicer.com>",
+  "license": "MIT",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+    "reformat-prettier": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -16,6 +20,8 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.66.15",
@@ -24,6 +30,7 @@
     "@typescript-eslint/parser": "^5.7.0",
     "babel-jest": "^26.6.3",
     "eslint": "^7.14.0",
+    "husky": "^7.0.4",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
     "react-test-renderer": "17.0.2",
