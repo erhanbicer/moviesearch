@@ -26,7 +26,8 @@
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
       "@store": ["store"],
-      "@store/*": ["store/*"]
+      "@store/*": ["store/*"],
+      "@resources/*": ["resources/*"]
     }
   },
   "include": ["src/**/*"],

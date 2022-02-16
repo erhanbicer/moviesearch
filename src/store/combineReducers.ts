@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import networkReducer from '@store/network/networkReducer';
+import { appReadinessReducer } from '@store/appReadiness/appReadinessReducer';
 
 const reducers = combineReducers({
-  network: networkReducer,
+  appReadiness: appReadinessReducer,
 });
 
 export default reducers;
