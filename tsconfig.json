@@ -18,7 +18,6 @@
     "useUnknownInCatchVariables": false,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"],
       "@components/*": ["components/*"],
       "@screens/*": ["screens/*"],
       "@router/*": ["router/*"],

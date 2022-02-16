@@ -14,3 +14,11 @@ export const setNetworkNotReachable = (dispatch: Dispatch<Action>) => {
     type: AppReadinessActionType.SET_NETWORK_STATUS_FALSE,
   });
 };
+
+export const setRemoteConfigFetched =
+  (status: boolean) => (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: AppReadinessActionType.SET_REMOTE_CONFIG_FETCHED,
+      payload: status,
+    });
+  };
