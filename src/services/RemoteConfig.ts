@@ -1,15 +1,21 @@
-import remoteConfig from '@react-native-firebase/remote-config';
+import remoteConfig, {
+  FirebaseRemoteConfigTypes,
+} from '@react-native-firebase/remote-config';
 
 interface IRemoteConfig {
   COMPANY_NAME: string;
+  BASE_URL: string;
+  OMDB_API_KEY: string;
 }
 type RemoteConfigKey = keyof IRemoteConfig;
 
 export class RemoteConfig {
   private static instance: RemoteConfig;
   private remoteConfigRef!: ReturnType<typeof remoteConfig>;
-  private defaultConfig = {
+  private defaultConfig: IRemoteConfig = {
     COMPANY_NAME: 'noname',
+    BASE_URL: '',
+    OMDB_API_KEY: '',
   };
 
   private constructor() {}
@@ -30,7 +36,9 @@ export class RemoteConfig {
 
   private async initialize() {
     this.remoteConfigRef = remoteConfig();
-    await this.remoteConfigRef.setDefaults(this.defaultConfig);
+    await this.remoteConfigRef.setDefaults(
+      this.defaultConfig as unknown as FirebaseRemoteConfigTypes.ConfigDefaults,
+    );
     await this.remoteConfigRef.fetchAndActivate();
   }
 

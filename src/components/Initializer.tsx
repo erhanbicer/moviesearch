@@ -4,15 +4,17 @@ import commonStyles from '@resources/commonStyles';
 import { useTypedSelector } from '@hooks/useTypedSelector';
 import { useInternetReachable } from '@hooks/useInternetReachable';
 import { useRemoteConfig } from '@hooks/useRemoteConfig';
+import { APIService } from '@services/APIService/APIService';
 
 interface InitializerProps {}
 
 export const Initializer: FC<InitializerProps> = ({ children }) => {
   const appReady = useTypedSelector((state) => state.appReadiness.appReady);
   const isInternetReachable = useInternetReachable();
-  useRemoteConfig();
+  const remoteConfig = useRemoteConfig();
 
   if (appReady) {
+    APIService.initialize(remoteConfig);
     return <>{children}</>;
   }
 

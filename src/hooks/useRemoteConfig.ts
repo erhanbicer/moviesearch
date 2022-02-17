@@ -7,7 +7,7 @@ import { useTypedSelector } from '@hooks/useTypedSelector';
 export const useRemoteConfig = () => {
   const dispatch = useDispatch();
   const remoteConfigInitialized = useTypedSelector(
-    (s) => s.appReadiness.remoteConfigFetched,
+    (state) => state.appReadiness.remoteConfigFetched,
   );
 
   useEffect(() => {
