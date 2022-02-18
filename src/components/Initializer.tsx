@@ -15,6 +15,7 @@ interface InitializerProps {}
 
 export const Initializer: FC<InitializerProps> = ({ children }) => {
   StatusBar.setBarStyle('light-content');
+  StatusBar.setBackgroundColor(R.theme.primary, true);
   const appReady = useTypedSelector((state) => state.appReadiness.appReady);
   const isInternetReachable = useInternetReachable();
   const remoteConfig = useRemoteConfig();

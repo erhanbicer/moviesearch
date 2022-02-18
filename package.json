@@ -11,7 +11,8 @@
     "test": "jest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
     "reformat-prettier": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
@@ -58,6 +59,7 @@
     "jest": "^26.6.3",
     "lint-staged": "^12.3.4",
     "metro-react-native-babel-preset": "^0.66.2",
+    "patch-package": "^6.4.7",
     "react-test-renderer": "17.0.2",
     "redux-devtools-extension": "^2.13.9",
     "typescript": "^4.4.4"

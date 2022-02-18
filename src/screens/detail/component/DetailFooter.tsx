@@ -40,6 +40,7 @@ export const DetailFooter: FC<DetailFooterProps> = ({ imdbID, imdbRating }) => {
         duration={1000}
         activeStrokeColor={R.theme.white}
         textColor={R.theme.white}
+        textStyle={styles.circularText}
         title={'IMDb'}
         titleColor={R.theme.white}
         titleStyle={styles.circularTitle}
@@ -79,5 +80,8 @@ const styles = StyleSheet.create({
   },
   circularTitle: {
     fontFamily: R.fonts.bold,
+  },
+  circularText: {
+    padding: 0,
   },
 });

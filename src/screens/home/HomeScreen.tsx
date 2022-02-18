@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: R.theme.primary,
   },
   textInput: {
-    height: R.dimen.xxl_h,
+    height: R.dimen.xxl_h * 1.5,
     width: '80%',
     marginVertical: R.dimen.m_h,
     marginHorizontal: '10%',

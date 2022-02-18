@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import R from '@resources';
 import { useNavigation } from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
-import { VibrancyView } from '@react-native-community/blur';
+import { BlurView } from '@react-native-community/blur';
 import { useOpacityAnimation } from '@hooks/animation';
 import { SearchMovie } from '@services/APIService/DTOs';
 import { Text } from '@components';
@@ -13,7 +13,7 @@ interface MovieItemProps {
   item: SearchMovie;
 }
 
-const AnimatedBlurView = Animated.createAnimatedComponent(VibrancyView);
+const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 
 export const MovieItem: FC<MovieItemProps> = ({ item }) => {
   const navigation = useNavigation();
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     height: R.dimen.xxl_h * 3,
     justifyContent: 'flex-end',
     bottom: R.dimen.m_h,
-    overflow: 'hidden',
   },
   zIndex: {
     zIndex: 1,
