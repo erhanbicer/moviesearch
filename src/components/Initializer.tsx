@@ -8,7 +8,7 @@ import {
   useRemoteConfig,
   useTypedSelector,
 } from '@hooks';
-import { Analytics } from '@services';
+import { Analytics, Messaging } from '@services';
 import { APIService } from '@services/APIService';
 
 interface InitializerProps {}
@@ -23,6 +23,7 @@ export const Initializer: FC<InitializerProps> = ({ children }) => {
   const servicesInitiliaze = useCallback(async () => {
     APIService.initialize(remoteConfig);
     await Analytics.initialize();
+    await Messaging.initialize();
   }, [remoteConfig]);
 
   useEffect(() => {
