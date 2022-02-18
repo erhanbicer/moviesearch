@@ -1,12 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { DetailScreen } from '@screens/detail/DetailScreen';
-import { HomeScreen } from '@screens/home/HomeScreen';
-import { SplashScreen } from '@screens/splash/SplashScreen';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
+import { DetailScreen, HomeScreen, SplashScreen } from '@screens';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
-  DetailScreen: undefined;
+  DetailScreen: {
+    imdbID: string;
+  };
   SplashScreen: undefined;
 };
 
@@ -14,23 +17,22 @@ const { Navigator, Screen } = createStackNavigator<RootStackParamList>();
 
 export const AppStackNavigator = () => {
   return (
-    <Navigator initialRouteName={'HomeScreen'}>
-      <Screen
-        name={'SplashScreen'}
-        component={SplashScreen}
-        options={{ headerShown: false }}
-      />
+    <Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName={'SplashScreen'}>
+      <Screen name={'SplashScreen'} component={SplashScreen} />
       <Screen
         name={'HomeScreen'}
         component={HomeScreen}
         options={{
           title: 'Anasayfa',
+          ...TransitionPresets.ScaleFromCenterAndroid,
         }}
       />
       <Screen
         name={'DetailScreen'}
         component={DetailScreen}
-        options={{ title: 'Detay' }}
+        options={{ title: 'Detay', ...TransitionPresets.ModalTransition }}
       />
     </Navigator>
   );
