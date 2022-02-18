@@ -1,4 +1,5 @@
 import { DetailApi } from '@services/APIService/types';
+import { validateImageURL } from '@utils/validateImageURL';
 
 export class DetailMovie {
   constructor() {}
@@ -16,7 +17,7 @@ export class DetailMovie {
     instance.language = details.Language;
     instance.metascore = details.Metascore;
     instance.plot = details.Plot;
-    instance.poster = details.Poster;
+    instance.poster = validateImageURL(details.Poster);
     instance.production = details.Production;
     instance.rated = details.Rated;
     instance.ratings = details.Ratings;

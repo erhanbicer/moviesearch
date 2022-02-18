@@ -1,4 +1,5 @@
 import { SearchApi } from '@services/APIService/types';
+import { validateImageURL } from '@utils/validateImageURL';
 
 export class SearchMovie {
   constructor() {}
@@ -7,7 +8,7 @@ export class SearchMovie {
     const instance = new SearchMovie();
 
     instance.imdbID = imdbID;
-    instance.poster = Poster;
+    instance.poster = validateImageURL(Poster);
     instance.title = Title;
     instance.type = Type;
     instance.year = Year;
