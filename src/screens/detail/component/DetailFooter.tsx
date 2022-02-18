@@ -1,5 +1,5 @@
 import React, { FC, useCallback } from 'react';
-import { Linking, Pressable, StyleSheet, View } from 'react-native';
+import { Alert, Linking, Pressable, StyleSheet, View } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import R from '@resources';
 import { lerp } from '@helpers';
@@ -20,6 +20,10 @@ export const DetailFooter: FC<DetailFooterProps> = ({ imdbID, imdbRating }) => {
     Linking.canOpenURL(url).then((res) => {
       if (res) {
         Linking.openURL(url);
+      } else {
+        Alert.alert('Hata', 'IMDb açılamıyor.\nDaha sonra tekrar deneyin', [
+          { text: 'Tamam' },
+        ]);
       }
     });
   }, [imdbID]);
