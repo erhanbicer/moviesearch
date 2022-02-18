@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect } from 'react';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Loading } from '@components/Loading';
 import R from '@resources';
 import { Text } from '@components';
@@ -14,8 +14,6 @@ import { APIService } from '@services/APIService';
 interface InitializerProps {}
 
 export const Initializer: FC<InitializerProps> = ({ children }) => {
-  StatusBar.setBarStyle('light-content');
-  StatusBar.setBackgroundColor(R.theme.primary, true);
   const appReady = useTypedSelector((state) => state.appReadiness.appReady);
   const isInternetReachable = useInternetReachable();
   const remoteConfig = useRemoteConfig();
@@ -30,6 +28,11 @@ export const Initializer: FC<InitializerProps> = ({ children }) => {
     (async () => {
       if (appReady) {
         await servicesInitiliaze();
+
+        StatusBar.setBarStyle('light-content');
+        if (Platform.OS === 'android') {
+          StatusBar.setBackgroundColor(R.theme.primary, true);
+        }
       }
     })();
   }, [appReady, servicesInitiliaze]);
