@@ -2,15 +2,15 @@ import React, { FC, useEffect, useMemo } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@router/AppStackNavigator';
-import { DetailBottomSheet, DetailFooter } from '@screens/detail/component';
-import { Loading } from '@components/Loading';
+import { Loading } from '@components';
 import FastImage from 'react-native-fast-image';
 import R from '@resources';
-import { useDetailFetch } from '@hooks/useDetailFetch';
 import { BlurView } from '@react-native-community/blur';
 import Animated from 'react-native-reanimated';
+import { useDetailFetch } from '@hooks';
 import { useOpacityAnimation } from '@hooks/animation';
-import { Analytics } from '@services/Analytics';
+import { Analytics } from '@services';
+import { DetailBottomSheet, DetailFooter } from '@screens/detail/component';
 
 interface DetailScreenProps
   extends StackScreenProps<RootStackParamList, 'DetailScreen'> {}

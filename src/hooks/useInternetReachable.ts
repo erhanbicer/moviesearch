@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNetInfo } from '@react-native-community/netinfo';
-import { useEffect } from 'react';
 import {
   setNetworkNotReachable,
   setNetworkReachable,
 } from '@store/appReadiness/appReadinessActions';
-import { sleep } from '@utils/sleep';
+import { sleep } from '@utils';
 
 export const useInternetReachable = () => {
   const dispatch = useDispatch();

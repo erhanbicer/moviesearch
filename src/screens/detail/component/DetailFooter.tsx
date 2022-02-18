@@ -2,7 +2,7 @@ import React, { FC, useCallback } from 'react';
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import R from '@resources';
-import { lerp } from '@helpers/lerp';
+import { lerp } from '@helpers';
 
 interface DetailFooterProps {
   imdbID: string;

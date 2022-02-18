@@ -1,10 +1,9 @@
 import React, { FC, useCallback, useMemo, useRef } from 'react';
 import { StyleSheet } from 'react-native';
 import R from '@resources';
-import { Spacer } from '@components/Spacer';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
-import { DetailMovie } from '@services/APIService/DTOs/DetailMovie';
-import { Text } from '@components/Text/Text';
+import { Text, Spacer } from '@components';
+import { DetailMovie } from '@services/APIService';
 
 interface DetailBottomSheetProps {
   detail: DetailMovie;

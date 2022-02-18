@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { RemoteConfig } from '@services/RemoteConfig';
 import { useDispatch } from 'react-redux';
 import { setRemoteConfigFetched } from '@store/appReadiness/appReadinessActions';
 import { useTypedSelector } from '@hooks/useTypedSelector';
+import { RemoteConfig } from '@services';
 
 export const useRemoteConfig = () => {
   const dispatch = useDispatch();

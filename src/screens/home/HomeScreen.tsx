@@ -8,11 +8,11 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import { Loading } from '@components/Loading';
+import { Loading } from '@components';
 import R from '@resources';
-import { MovieItem } from '@screens/home/component/MovieItem';
 import { SearchMovie } from '@services/APIService';
-import { useMoviesFetch } from '@hooks/useMoviesFetch';
+import { useMoviesFetch } from '@hooks';
+import { MovieItem } from '@screens/home/component/MovieItem';
 
 export const HomeScreen: FC = () => {
   const { movies, searchTerm, loading, errorText, setSearchTerm, fetchMovie } =

@@ -27,14 +27,19 @@
       "@screens/*": ["screens/*"],
       "@screens": ["screens"],
       "@router/*": ["router/*"],
+      "@router": ["router"],
       "@services/*": ["services/*"],
+      "@services": ["services"],
       "@utils/*": ["utils/*"],
+      "@utils": ["utils"],
       "@hooks/*": ["hooks/*"],
-      "@store": ["store"],
+      "@hooks": ["hooks"],
       "@store/*": ["store/*"],
+      "@store": ["store"],
       "@resources/*": ["resources/*"],
       "@resources": ["resources"],
-      "@helpers/*": ["helpers/*"]
+      "@helpers/*": ["helpers/*"],
+      "@helpers": ["helpers"]
     }
   },
   "include": ["src/**/*"],

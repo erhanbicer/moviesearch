@@ -1,12 +1,12 @@
 import React, { FC, useCallback } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
-import { SearchMovie } from '@services/APIService/DTOs/SearchMovie';
 import FastImage from 'react-native-fast-image';
 import R from '@resources';
 import { useNavigation } from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
 import { VibrancyView } from '@react-native-community/blur';
 import { useOpacityAnimation } from '@hooks/animation';
+import { SearchMovie } from '@services/APIService';
 
 interface MovieItemProps {
   item: SearchMovie;

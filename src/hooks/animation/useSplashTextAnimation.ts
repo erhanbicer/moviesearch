@@ -7,7 +7,7 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 import R from '@resources';
-import { sleep } from '@utils/sleep';
+import { sleep } from '@utils';
 
 export const useSplashTextAnimation = () => {
   let h4 = R.fontSize.h4;

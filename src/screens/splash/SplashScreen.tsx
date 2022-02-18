@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { RemoteConfig } from '@services/RemoteConfig';
-import commonStyles from '@resources/commonStyles';
-import { sleep } from '@utils/sleep';
+import { sleep } from '@utils';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@router/AppStackNavigator';
-import { Text } from '@components/Text/Text';
 import { useSplashTextAnimation } from '@hooks/animation';
+import R from '@resources';
+import { Text } from '@components';
+import { RemoteConfig } from '@services';
 
 interface SplashScreenProps
   extends StackScreenProps<RootStackParamList, 'SplashScreen'> {}
@@ -24,7 +24,7 @@ export const SplashScreen: FC<SplashScreenProps> = (props) => {
   }, [props.navigation]);
 
   return (
-    <View style={[styles.container, commonStyles.center]}>
+    <View style={[styles.container, R.commonStyles.center]}>
       <Text animated={textAnimatedStyle}>{companyName}</Text>
     </View>
   );

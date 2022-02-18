@@ -1,13 +1,15 @@
 import React, { FC, useCallback, useEffect } from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
-import { useTypedSelector } from '@hooks/useTypedSelector';
-import { useInternetReachable } from '@hooks/useInternetReachable';
-import { useRemoteConfig } from '@hooks/useRemoteConfig';
-import { APIService } from '@services/APIService/APIService';
 import { Loading } from '@components/Loading';
 import R from '@resources';
-import { Analytics } from '@services/Analytics';
 import { Text } from '@components';
+import {
+  useInternetReachable,
+  useRemoteConfig,
+  useTypedSelector,
+} from '@hooks';
+import { Analytics } from '@services';
+import { APIService } from '@services/APIService';
 
 interface InitializerProps {}
 
