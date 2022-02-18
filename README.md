@@ -1,5 +1,10 @@
 ## Movie Search 🚀
 
+<p align="center">
+  <img alt="React Native Button" src="https://github.com/erhanbicer/react-native-movie-search/blob/master/screenshots/screenshot-1.png" height="844" />
+  <img alt="React Native Button" src="https://github.com/erhanbicer/react-native-movie-search/blob/master/screenshots/screenshot-2.png" height="844" />
+</p>
+
 ---
 ## 🛠 Tools
 
