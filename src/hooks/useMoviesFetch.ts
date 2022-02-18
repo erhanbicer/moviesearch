@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { APIService, SearchMovie } from '@services/APIService';
 import { getRandomMovie } from '@helpers';
+import { SearchMovie } from '@services/APIService/DTOs';
+import { APIService } from '@services/APIService';
 
 let firstRender = true;
 export const useMoviesFetch = () => {

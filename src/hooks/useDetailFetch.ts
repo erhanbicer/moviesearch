@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { APIService, DetailMovie } from '@services/APIService';
+import { DetailMovie } from '@services/APIService/DTOs';
+import { APIService } from '@services/APIService';
 
 export const useDetailFetch = (imdbID: string) => {
   const [detail, setDetail] = useState<DetailMovie | undefined>(undefined);

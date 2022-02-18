@@ -4,15 +4,14 @@ import {
   ListRenderItem,
   SafeAreaView,
   StyleSheet,
-  Text,
   TextInput,
   View,
 } from 'react-native';
-import { Loading } from '@components';
+import { Loading, Text } from '@components';
 import R from '@resources';
-import { SearchMovie } from '@services/APIService';
 import { useMoviesFetch } from '@hooks';
 import { MovieItem } from '@screens/home/component/MovieItem';
+import { SearchMovie } from '@services/APIService/DTOs';
 
 export const HomeScreen: FC = () => {
   const { movies, searchTerm, loading, errorText, setSearchTerm, fetchMovie } =
@@ -38,6 +37,7 @@ export const HomeScreen: FC = () => {
           onChangeText={setSearchTerm}
           onSubmitEditing={() => fetchMovie(searchTerm)}
           selectionColor={R.theme.white}
+          clearButtonMode={'while-editing'}
         />
         {loading ? (
           <Loading />

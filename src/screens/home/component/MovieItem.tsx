@@ -1,12 +1,13 @@
 import React, { FC, useCallback } from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import R from '@resources';
 import { useNavigation } from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
 import { VibrancyView } from '@react-native-community/blur';
 import { useOpacityAnimation } from '@hooks/animation';
-import { SearchMovie } from '@services/APIService';
+import { SearchMovie } from '@services/APIService/DTOs';
+import { Text } from '@components';
 
 interface MovieItemProps {
   item: SearchMovie;
@@ -36,7 +37,11 @@ export const MovieItem: FC<MovieItemProps> = ({ item }) => {
           blurAmount={12}
         />
       </FastImage>
-      <Text style={styles.text}>{`${item.title} (${item.year})`}</Text>
+      <Text
+        style={styles.text}
+        heading={'h3'}
+        children={`${item.title} (${item.year})`}
+      />
     </Pressable>
   );
 };
@@ -53,7 +58,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: R.dimen.m_w,
     alignSelf: 'center',
-    color: R.theme.white,
   },
   image: {
     width: R.dimen.xxl_w * 2.5,

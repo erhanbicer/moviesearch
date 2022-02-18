@@ -1,8 +1,9 @@
 import React, { FC, useCallback } from 'react';
-import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, StyleSheet, View } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import R from '@resources';
 import { lerp } from '@helpers';
+import { Text } from '@components';
 
 interface DetailFooterProps {
   imdbID: string;
@@ -26,7 +27,12 @@ export const DetailFooter: FC<DetailFooterProps> = ({ imdbID, imdbRating }) => {
   return (
     <View style={styles.subContainer}>
       <Pressable style={styles.button} onPress={handleClick}>
-        <Text style={styles.buttonText}>View IMDb</Text>
+        <Text
+          style={styles.buttonText}
+          heading={'h5'}
+          textColor={R.theme.black}>
+          View IMDb
+        </Text>
       </Pressable>
       <CircularProgress
         value={rating}
@@ -34,7 +40,6 @@ export const DetailFooter: FC<DetailFooterProps> = ({ imdbID, imdbRating }) => {
         duration={1000}
         activeStrokeColor={R.theme.white}
         textColor={R.theme.white}
-        textStyle={styles.circularText}
         title={'IMDb'}
         titleColor={R.theme.white}
         titleStyle={styles.circularTitle}
@@ -70,10 +75,6 @@ const styles = StyleSheet.create({
     borderRadius: R.dimen.xl_w,
   },
   buttonText: {
-    fontFamily: R.fonts.medium,
-    color: R.theme.black,
-  },
-  circularText: {
     fontFamily: R.fonts.medium,
   },
   circularTitle: {

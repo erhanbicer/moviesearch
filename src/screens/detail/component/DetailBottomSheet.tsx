@@ -2,8 +2,10 @@ import React, { FC, useCallback, useMemo, useRef } from 'react';
 import { StyleSheet } from 'react-native';
 import R from '@resources';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
-import { Text, Spacer } from '@components';
-import { DetailMovie } from '@services/APIService';
+import { Spacer, Text } from '@components';
+import { valueCheck } from '@helpers';
+import { DetailMovie } from '@services/APIService/DTOs';
+import type { TextProps } from '@components/Text/types';
 
 interface DetailBottomSheetProps {
   detail: DetailMovie;
@@ -13,10 +15,6 @@ export const DetailBottomSheet: FC<DetailBottomSheetProps> = ({ detail }) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   const snapPoints = useMemo(() => ['38%', '65%'], []);
-
-  const valueCheck = (value: string): string => {
-    return value.match(/N\/A/g) ? '' : value;
-  };
 
   const handleSheetChanges = useCallback((index: number) => {
     console.log('handleSheetChanges', index);
@@ -36,32 +34,40 @@ export const DetailBottomSheet: FC<DetailBottomSheetProps> = ({ detail }) => {
         style={styles.contentContainer}
         bounces={false}
         stickyHeaderIndices={[0]}>
-        <Text style={styles.title} children={valueCheck(detail.title)} />
-        <Text style={styles.genre} children={valueCheck(detail.genre)} />
-        <Spacer />
         <Text
-          style={styles.genre}
-          children={valueCheck(`Runtime: ${detail.runtime}`)}
+          style={styles.title}
+          heading={'h1'}
+          bold
+          children={valueCheck(detail.title)}
         />
+        <InfoText text={valueCheck(detail.genre)} />
         <Spacer />
-        <Text
-          style={styles.genre}
-          children={valueCheck(`Released Date: ${detail.released}`)}
-        />
-        <Spacer space={R.dimen.l_h} />
-        <Text style={styles.plot} children={valueCheck(detail.plot)} />
+        <InfoText text={valueCheck(`Runtime: ${detail.runtime}`)} />
+        <Spacer />
+        <InfoText text={valueCheck(`Released Date: ${detail.released}`)} />
         <Spacer space={R.dimen.l_h} />
         <Text
-          style={styles.genre}
-          children={valueCheck(`Awards: ${detail.awards}`)}
+          style={styles.plot}
+          heading={'h4'}
+          children={valueCheck(detail.plot)}
         />
+        <Spacer space={R.dimen.l_h} />
+        <InfoText text={valueCheck(`Awards: ${detail.awards}`)} />
         <Spacer />
-        <Text
-          style={styles.genre}
-          children={valueCheck(`Language: ${detail.language}`)}
-        />
+        <InfoText text={valueCheck(`Language: ${detail.language}`)} />
       </BottomSheetScrollView>
     </BottomSheet>
+  );
+};
+
+const InfoText: FC<TextProps & { text: string }> = ({ text }) => {
+  return (
+    <Text
+      heading={'h4'}
+      textColor={R.theme.grays}
+      style={styles.infoText}
+      children={valueCheck(text)}
+    />
   );
 };
 
@@ -75,21 +81,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: R.dimen.xxl_w,
   },
   title: {
-    color: R.theme.white,
-    fontSize: R.fontSize.h1 * 1.2,
-    fontFamily: R.fonts.bold,
     letterSpacing: -0.4,
   },
-  genre: {
-    fontSize: R.fontSize.h4,
+  infoText: {
     fontFamily: R.fonts.medium,
-    color: R.theme.grays,
     letterSpacing: -0.4,
   },
   plot: {
-    fontSize: R.fontSize.h4,
-    fontFamily: R.fonts.medium,
-    color: R.theme.white,
     textAlign: 'justify',
   },
   blur: {

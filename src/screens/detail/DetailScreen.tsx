@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useMemo } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@router/AppStackNavigator';
-import { Loading } from '@components';
+import { Loading, Text } from '@components';
 import FastImage from 'react-native-fast-image';
 import R from '@resources';
 import { BlurView } from '@react-native-community/blur';
