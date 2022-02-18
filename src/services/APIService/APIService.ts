@@ -43,6 +43,7 @@ export class APIService {
     const { data } = await this.axios.get<SearchApi.SearchRawResponse>('', {
       params: {
         s: name,
+        type: 'movie',
         page,
       },
     });
